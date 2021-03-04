@@ -1,0 +1,775 @@
+{
+  "intents": [
+    {
+      "intent": "ContinuarNavegando",
+      "examples": [
+        {
+          "text": "Desejo"
+        },
+        {
+          "text": "Quero"
+        },
+        {
+          "text": "Sim"
+        },
+        {
+          "text": "Sim, desejo"
+        }
+      ],
+      "description": "Intent criada para que a intenção do usuário de continuar interagindo com o bot seja capturada"
+    },
+    {
+      "intent": "Sair",
+      "examples": [
+        {
+          "text": "Não"
+        },
+        {
+          "text": "Não desejo"
+        },
+        {
+          "text": "Não, não desejo"
+        },
+        {
+          "text": "Não quero"
+        }
+      ],
+      "description": "Intent criada para capturar a intenção do usuário quando o mesmo não deseja mais continuar interagindo com o bot"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "Menu",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Bitly",
+          "synonyms": [
+            "8",
+            "Bitly"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Classe LaTeX da FEI",
+          "synonyms": [
+            "5",
+            "Classe LaTeX",
+            "LaTeX",
+            "LaTeX da FEI"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Combate ao Plágio",
+          "synonyms": [
+            "Combate ao Plagio",
+            "informações plagio",
+            "informações sobre o plagio",
+            "Plágio"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Ficha Catalográfica",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Guia da nova reforma ortográfica",
+          "synonyms": [
+            "9",
+            "Guia reforma ortográfica",
+            "nova reforma ortográfica",
+            "reforma ortográfica"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Guia para elaboração de trabalhos acadêmicos da FEI",
+          "synonyms": [
+            "4",
+            "elaboração de trabalhos acadêmicos",
+            "Guia para elaboração de trabalhos",
+            "Guia para elaboração de trabalhos acadêmicos"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Mecanismo Online para Referências",
+          "synonyms": [
+            "6",
+            "Mecanismo para Referências",
+            "Referências"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Mendeley",
+          "synonyms": [
+            "7",
+            "Mendeley"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Orientação para normalização de trabalhos acadêmicos",
+          "synonyms": [
+            "3",
+            "normalização de trabalhos",
+            "normalização de trabalhos acadêmicos",
+            "Orientação para normalização de trabalhos",
+            "Orientação trabalhos acadêmicos"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Procedimento para entrega de Trabalhos Acadêmicos",
+          "synonyms": [
+            "entrega de Trabalhos",
+            "entrega de trabalhos Acadêmicos",
+            "procedimento de trabalhos",
+            "Procedimento para entrega de Trabalhos"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "welcome",
+      "dialog_node": "Bem-vindo"
+    },
+    {
+      "type": "event_handler",
+      "parent": "Bem-vindo",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1614474286057",
+      "previous_sibling": "response_1_1614474421686"
+    },
+    {
+      "type": "event_handler",
+      "parent": "node_10_1614477626045",
+      "event_name": "focus",
+      "dialog_node": "handler_2_1614479011183"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_8_1614479011674",
+      "event_name": "focus",
+      "dialog_node": "handler_6_1614479011685",
+      "previous_sibling": "handler_7_1614479011684"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_8_1614479011674",
+      "event_name": "input",
+      "dialog_node": "handler_7_1614479011684"
+    },
+    {
+      "type": "standard",
+      "parent": "node_1_1614477530681",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_7_1614560019905"
+      },
+      "conditions": "@Menu:(Procedimento para entrega de Trabalhos Acadêmicos)",
+      "dialog_node": "node_10_1614477626045"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<h2>Guia para elaboração de trabalhos acadêmicos da FEI</h2>\n<br/>\nA biblioteca da FEI disponibiliza aos alunos um guia para a elaboração de trabalhos acadêmicos, estando disponível somente na versão eletrônica, tendo como enfoque não só a padronização disponibilizada através das normas estabelecidas, mas principalmente a qualidade dos trabalhos apresentados na instituição.\nAbaixo você pode conferir diversos conteúdos que o ajudarão no desenvolvimento do seu trabalho acadêmico aqui na instituição.\n<br/>\n<a  target=\"_blank\" href=\"https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/docs/biblioteca/template.docx\">Template do trabalho acadêmico.</a>\n<a  target=\"_blank\" href=\"https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/docs/biblioteca/templateiniciacaocientifica.docx\">Template dos trabalhos de iniciação científica.</a>\n<a  target=\"_blank\" href=\"https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/docs/biblioteca/templateplanodenegocios.docx\">Template do plano de negócios elaborado para o curso de administração.</a>\n<a  target=\"_blank\" href=\"https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/docs/biblioteca/paginacao.pdf\">Tutorial de paginação.</a>\n<a  target=\"_blank\" href=\"https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/docs/biblioteca/sumario.pdf\">Tutorial de sumário.</a>\n<a  target=\"_blank\" href=\"https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/docs/biblioteca/ilustracoes.pdf\">Tutorial de lista de ilustrações</a>\n<a  target=\"_blank\" href=\"https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/docs/biblioteca/tabelas.pdf\">Tutorial de lista de tabelas</a>\n<a  target=\"_blank\" href=\"https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/docs/biblioteca/conversorpdf.pdf\">Tutorial para salvar arquivo como PDF/A</a>\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1614477530681",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_7_1614560019905"
+      },
+      "conditions": "@Menu:(Guia para elaboração de trabalhos acadêmicos da FEI)",
+      "dialog_node": "node_10_1614477630297",
+      "previous_sibling": "node_4_1614477629194"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<h2>Guia da nova reforma ortográfica</h2>\n<br/>\nQuer saber o que mudou na ortografia brasileira depois da nova reforma ortográfica? Se quiser basta clicar no link abaixo que levaremos você para conhecer as novas regras ortográficas!\n<br/>\n<a  target=\"_blank\" href=\"https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/docs/biblioteca/guia_reforma_ortografica_cp.pdf\">Clique aqui para acessar o guia da nova reforma ortográfica.</a>.<br/><br/>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1614477530681",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_7_1614560019905"
+      },
+      "conditions": "@Menu:(Guia da nova reforma ortográfica)",
+      "dialog_node": "node_10_1614477633961",
+      "previous_sibling": "node_10_1614477630297"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<h2>Combate ao Plágio</h2>\n<br/>\nCom intuito de coibir o plágio nas produções acadêmicas, a biblioteca da FEI divulga as seguintes opções gratuitas para a detecção de plagio!\n<br/>\n<a  target=\"_blank\" href=\"http://www.plagiarismcombat.com/\">Clique aqui para ir até o site do Farejador de plágio.</a>\n<a  target=\"_blank\" href=\"http://www.plagium.com/\">Clique aqui para ir até o site do Plagium</a>\n<a  target=\"_blank\" href=\"http://plagiarisma.net/\">Clique aqui para ir até o site do Plagiarisma.</a>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1614477530681",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_7_1614560019905"
+      },
+      "conditions": "@Menu:(Combate ao Plágio)",
+      "dialog_node": "node_10_1614477636290",
+      "previous_sibling": "node_10_1614477633961"
+    },
+    {
+      "type": "folder",
+      "title": "Opções escolhidas",
+      "parent": "node_8_1614475674394",
+      "conditions": "@Menu",
+      "dialog_node": "node_1_1614477530681"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "title": "Orientação para normalização de trabalhos acadêmicos",
+            "source": "https://static.fei.edu.br/Arquivos/img/biblioteca/trabalhos-academicos.jpg",
+            "description": "",
+            "response_type": "image"
+          },
+          {
+            "values": [
+              {
+                "text": "<a  target=\"_blank\" href=\"https://docs.google.com/forms/d/1HMTDr5U_1Dp8pVBV7WhXVrm7ULJyRAT99Ey6DSPZ3Fo/closedform\">Clique aqui para realizar o seu agendamento</a>.<br/>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1614477530681",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_7_1614560019905"
+      },
+      "conditions": "@Menu:(Orientação para normalização de trabalhos acadêmicos)",
+      "dialog_node": "node_1_1614477627606",
+      "previous_sibling": "node_10_1614477626045"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Desculpe não entendi o que quis dizer, responda novamente por favor"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "node_1_1614559924751",
+      "previous_sibling": "node_6_1614559894872"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<h2>Bitly</h2>\n<br/>\nbitly é um dos mais famosos gerenciadores e encurtadores de URL da internet. Confira!\n<br/>\n<a  target=\"_blank\" href=\"https://bitly.com/\">Clique aqui para acessar o bitly.</a>.<br/><br/>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1614477530681",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_7_1614560019905"
+      },
+      "conditions": "@Menu:Bitly",
+      "dialog_node": "node_2_1614478036400",
+      "previous_sibling": "node_7_1614478034167"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<h2>Mecanismo Online para Referências (MORE)</h2>\n<br/>\nMORE é uma ferramenta gratuita e fácil de usar, que produz automaticamente citações no texto e referências no formato ABNT.\n<br/>\n<a  target=\"_blank\" href=\"http://www.more.ufsc.br/\">Clique aqui para acessar o MORE.</a>."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1614477530681",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_7_1614560019905"
+      },
+      "conditions": "@Menu:(Mecanismo Online para Referências)",
+      "dialog_node": "node_4_1614477629194",
+      "previous_sibling": "node_5_1614477628504"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<h1>Mendeley</h1>\n<br/><br/>\nO Mendeley é considerado uma rede social acadêmica que conecta pesquisadores e permite gerenciar referências, buscar, arquivar e compartilhar documentos.\n<br/>\n<a  target=\"_blank\" href=\"https://www.mendeley.com/reference-management/reference-manager\">Clique aqui para acessar o mendeley.</a>.<br/><br/>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1614477530681",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_7_1614560019905"
+      },
+      "conditions": "@Menu:Mendeley",
+      "dialog_node": "node_5_1614477628504",
+      "previous_sibling": "node_1_1614477627606"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Obrigado por conversar comigo, volte sempre!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Sair",
+      "dialog_node": "node_6_1614559894872",
+      "previous_sibling": "node_8_1614475674394"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<h2>Classe LaTeX da FEI</h2>\n<br/>\nVocê sabia que a FEI possui uma classe LaTeX para trabalhos acadêmicos? Pois é, a FEI disponibiliza um arquivo de formatação de trabalhos acadêmicos para usuários de LaTeX, de acordo com as normas de formatação do Centro Universitário FEI.\nEla está disponível nas principais distribuições de LaTeX (MikTeX no Windows, MacTeX no MacOS e TeX Live no Linux), possui um <a  target=\"_blank\" href=\"http://plagiarisma.net/\">manual de utilização</a> em PDF para ajudar usuários a iniciar seus trabalhos acadêmicos."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1614477530681",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_7_1614560019905"
+      },
+      "conditions": "@Menu:(Classe LaTeX da FEI)",
+      "dialog_node": "node_7_1614478034167",
+      "previous_sibling": "node_10_1614477636290"
+    },
+    {
+      "type": "standard",
+      "title": "Pergunta_Continuar",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Deseja ver mais alguma opção?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1614475674394",
+      "dialog_node": "node_7_1614560019905",
+      "previous_sibling": "node_1_1614477530681"
+    },
+    {
+      "type": "standard",
+      "title": "Opções",
+      "output": {
+        "generic": [
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Mendeley",
+                "value": {
+                  "input": {
+                    "text": "Mendeley"
+                  }
+                }
+              },
+              {
+                "label": "Procedimento para entrega de Trabalhos Acadêmicos",
+                "value": {
+                  "input": {
+                    "text": "Procedimento para entrega de Trabalhos Acadêmicos"
+                  }
+                }
+              },
+              {
+                "label": "Combate ao Plágio",
+                "value": {
+                  "input": {
+                    "text": "Combate ao Plágio"
+                  }
+                }
+              },
+              {
+                "label": "Orientação para normalização de trabalhos acadêmicos",
+                "value": {
+                  "input": {
+                    "text": "Orientação para normalização de trabalhos acadêmicos"
+                  }
+                }
+              },
+              {
+                "label": "Guia para elaboração de trabalhos acadêmicos da FEI",
+                "value": {
+                  "input": {
+                    "text": "Guia para elaboração de trabalhos acadêmicos da FEI"
+                  }
+                }
+              },
+              {
+                "label": "Classe LaTeX da FEI",
+                "value": {
+                  "input": {
+                    "text": "Classe LaTeX da FEI"
+                  }
+                }
+              },
+              {
+                "label": "Mecanismo Online para Referências",
+                "value": {
+                  "input": {
+                    "text": "Mecanismo Online para Referências"
+                  }
+                }
+              },
+              {
+                "label": "Bitly",
+                "value": {
+                  "input": {
+                    "text": "Bitly"
+                  }
+                }
+              },
+              {
+                "label": "Guia da nova reforma ortográfica",
+                "value": {
+                  "input": {
+                    "text": "Guia da nova reforma ortográfica"
+                  }
+                }
+              },
+              {
+                "label": "Ficha Catalográfica",
+                "value": {
+                  "input": {
+                    "text": "Ficha Catalográfica"
+                  }
+                }
+              }
+            ],
+            "description": "Ótimo essas são as nossas opções",
+            "response_type": "option"
+          }
+        ]
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "#ContinuarNavegando",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_8_1614475674394",
+      "previous_sibling": "Bem-vindo",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<h2>Ficha Catalográfica</h2>\n<br/>\nA biblioteca da FEI disponibiliza para seus usuários o sistema para elaboração de fichas catalográficas que foi desenvolvido pelo ICMC/USP e gentilmente cedido para ser adaptado às necessidades de sua comunidade acadêmica.\nEla é um elemento obrigatório em trabalhos acadêmicos e sua elaboração é feita com as informações fundamentais para a identificação do documento, entre elas: autor e orientador, título, total de folhas, assunto, palavras-chave, etc.\nVocê pode elaborar a sua própria ficha catalográfica clicando no link abaixo\n<a  target=\"_blank\" href=\"http://sofia.fei.edu.br/ficha/\">Ficha Catalográfica.</a>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1614477530681",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_7_1614560019905"
+      },
+      "conditions": "@Menu:(Ficha Catalográfica)",
+      "dialog_node": "node_9_1614486886566",
+      "previous_sibling": "node_2_1614478036400"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<h2>Boa tarde!</h2><br/>Seja bem vindo a biblioteca da FEI, estou aqui para ajudar você a conhecer todas as informações a respeito da nossa biblioteca! Aqui nós temos diversas opções para você, qual delas você deseja?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Bem-vindo",
+      "conditions": "now().after('12:00:00') && now().before('18:00:00')",
+      "dialog_node": "response_10_1614474411629"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Mendeley",
+                "value": {
+                  "input": {
+                    "text": "Mendeley"
+                  }
+                }
+              },
+              {
+                "label": "Procedimento para entrega de Trabalhos Acadêmicos",
+                "value": {
+                  "input": {
+                    "text": "Procedimento para entrega de Trabalhos Acadêmicos"
+                  }
+                }
+              },
+              {
+                "label": "Combate ao Plágio",
+                "value": {
+                  "input": {
+                    "text": "Combate ao Plágio"
+                  }
+                }
+              },
+              {
+                "label": "Orientação para normalização de trabalhos acadêmicos",
+                "value": {
+                  "input": {
+                    "text": "Orientação para normalização de trabalhos acadêmicos"
+                  }
+                }
+              },
+              {
+                "label": "Guia para elaboração de trabalhos acadêmicos da FEI",
+                "value": {
+                  "input": {
+                    "text": "Guia para elaboração de trabalhos acadêmicos da FEI"
+                  }
+                }
+              },
+              {
+                "label": "Classe LaTeX da FEI",
+                "value": {
+                  "input": {
+                    "text": "Classe LaTeX da FEI"
+                  }
+                }
+              },
+              {
+                "label": "Mecanismo Online para Referências",
+                "value": {
+                  "input": {
+                    "text": "Mecanismo Online para Referências"
+                  }
+                }
+              },
+              {
+                "label": "Bitly",
+                "value": {
+                  "input": {
+                    "text": "Bitly"
+                  }
+                }
+              },
+              {
+                "label": "Guia da nova reforma ortográfica",
+                "value": {
+                  "input": {
+                    "text": "Guia da nova reforma ortográfica"
+                  }
+                }
+              }
+            ],
+            "description": "",
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_8_1614475674394",
+      "disabled": true,
+      "conditions": "welcome",
+      "dialog_node": "response_10_1614478403739",
+      "previous_sibling": "node_7_1614560019905"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<h2>Boa noite!</h2><br/>Seja bem vindo a biblioteca da FEI, estou aqui para ajudar você a conhecer todas as informações a respeito da nossa biblioteca! Deseja ver nossas opções?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Bem-vindo",
+      "context": {},
+      "conditions": "now().after('00:00:00') && now().before('06:00:00') || now().after('18:00:00')",
+      "dialog_node": "response_1_1614474421686",
+      "previous_sibling": "response_9_1614474420053"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<h2>Bom dia!</h2><br/>Seja bem vindo a biblioteca da FEI, estou aqui para ajudar você a conhecer todas as informações a respeito da nossa biblioteca! Aqui nós temos diversas opções para você, qual delas você deseja?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Bem-vindo",
+      "conditions": "now().after('06:00:00') && now().before('13:00:00')",
+      "dialog_node": "response_9_1614474420053",
+      "previous_sibling": "response_10_1614474411629"
+    },
+    {
+      "type": "slot",
+      "parent": "node_10_1614477626045",
+      "dialog_node": "slot_8_1614479011674",
+      "previous_sibling": "handler_2_1614479011183"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "Assistente Biblioteca FEI",
+  "language": "pt-br",
+  "description": ""
+}
